@@ -1,75 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
-    <head>
-        <!-- Application Metas -->
-        <title>Widget sample</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="description" content="My Widget ! UWA Widget skeleton" />
-		<meta name="version" content="" />
-		<meta name="apiVersion" content="" />
-		<meta name="debugMode" content="true" />
-		<meta name="author" content="" />
-		<meta name="responsible" content="" />
-		<meta name="audience" content="" />
-		<meta name="category" content="" />
-		<meta name="thumbnail" content="" />
-		<meta name="data-type" content="" />
-		<meta name="data-provider" content="" />
-		<meta name="data-server-dev" content="" />
-		<meta name="data-server-prod" content="" />
-		<meta name="data-responsible" content="" />
-		<meta name="data-business-responsible" content="" />
 
-        <!-- UWA Environment -->
-        <link rel="stylesheet" type="text/css" href="http://uwa.netvibes.com/lib/c/UWA/assets/css/standalone.css" />
-        <script type="text/javascript" src="http://uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"></script>
+<head>
+    <!-- Application Metas -->
+    <title>Widget sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="My Widget ! UWA Widget skeleton" />
+    <meta name="version" content="" />
+    <meta name="apiVersion" content="" />
+    <meta name="debugMode" content="true" />
+    <meta name="author" content="" />
+    <meta name="responsible" content="" />
+    <meta name="audience" content="" />
+    <meta name="category" content="" />
+    <meta name="thumbnail" content="" />
+    <meta name="data-type" content="" />
+    <meta name="data-provider" content="" />
+    <meta name="data-server-dev" content="" />
+    <meta name="data-server-prod" content="" />
+    <meta name="data-responsible" content="" />
+    <meta name="data-business-responsible" content="" />
 
-        <!-- Application Preferences -->
-        <widget:preferences>
-        </widget:preferences>
+    <!-- UWA Environment -->
+    <link rel="stylesheet" type="text/css" href="http://uwa.netvibes.com/lib/c/UWA/assets/css/standalone.css" />
+    <script type="text/javascript" src="http://uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"></script>
 
-        <!-- Application Styles -->
-        <style type="text/css">
-        </style>
+    <!-- Application Preferences -->
+    <widget:preferences>
+    </widget:preferences>
 
-        <!-- Application JavaScript Source -->
-        <script type="text/javascript">
+    <!-- Application Styles -->
+    <style type="text/css">
+    </style>
+
+    <!-- Application JavaScript Source -->
+    <script type="text/javascript">
         //<![CDATA[
-            const div = document.createElement("div");
-            const content = document.createElement("First Widget! YAY!");
-            div.appendChild(content);
-            
-            /*
-                We create the global MyWidget object (it could be any other name).
-                This object will be used to store variables and functions.
-            */
-            const MyWidget = {
+        // const div = document.createElement("div");
+        // const content = document.createElement("First Widget! YAY!");
+        // div.appendChild(content);
 
-                /*
-                    The onLoad() function is the first one,
-                    it will be triggered by widget "onLoad" event.
-                */
-                onLoad: function() {
-
-                    // Here we update the content of the widget body.
-                    widget.setBody(div);
-                }
-            };
+        /*
+            We create the global MyWidget object (it could be any other name).
+            This object will be used to store variables and functions.
+        */
+        const MyWidget = {
 
             /*
-                The "onLoad" event is the very first event triggered when
-                the widget is fully loaded or when the preferences are validated.
-
-                Here, we add MyWidget.onLoad() function as "onLoad" event
-                listener on the widget.
+                The onLoad() function is the first one,
+                it will be triggered by widget "onLoad" event.
             */
-            widget.addEvent('onLoad', MyWidget.onLoad);
+            onLoad: () => {
+                const content = [
+                    '<div width="100" height="200">',
+                        '<div width="50" height="100" background-color="green" color="blue">"First Widget! YAY!"</div>',
+                    '</div>'];
+
+                widget.setBody({
+                    tag: 'div',
+                    html: content.join('')
+                    // styles: {
+                    //   display: title.replace(/\s/g,"").length > 0 ? '' : 'none'
+                    // }
+                });
+
+
+                // Here we update the content of the widget body.
+                // widget.setBody(div);
+            }
+        };
+
+        /*
+            The "onLoad" event is the very first event triggered when
+            the widget is fully loaded or when the preferences are validated.
+
+            Here, we add MyWidget.onLoad() function as "onLoad" event
+            listener on the widget.
+        */
+        widget.addEvent('onLoad', MyWidget.onLoad);
 
         //]]>
-        </script>
-    </head>
-    <body>
-        <p>Loading...</p>
-    </body>
+    </script>
+</head>
+
+<body>
+    <p>Loading...</p>
+</body>
+
 </html>
