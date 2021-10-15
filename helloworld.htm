@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
     <head>
         <!-- Application Metas -->
-        <title>Hello World sample</title>
+        <title>Widget sample</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description" content="My Widget ! UWA Widget skeleton" />
 		<meta name="version" content="" />
@@ -36,12 +36,15 @@
         <!-- Application JavaScript Source -->
         <script type="text/javascript">
         //<![CDATA[
-
+            const div = document.createElement("div");
+            const content = document.createElement("First Widget! YAY!");
+            div.appendChild(content);
+            
             /*
                 We create the global MyWidget object (it could be any other name).
                 This object will be used to store variables and functions.
             */
-            var MyWidget = {
+            const MyWidget = {
 
                 /*
                     The onLoad() function is the first one,
@@ -50,7 +53,7 @@
                 onLoad: function() {
 
                     // Here we update the content of the widget body.
-                    widget.setBody('Hello World!');
+                    widget.setBody(div);
                 }
             };
 
