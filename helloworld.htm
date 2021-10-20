@@ -57,12 +57,14 @@
 
                 widget.setBody({
                     tag: 'div',
-                    html: '<div>First widget is here...</div>',
+                    html: 'First widget is here...'
                     // content.join('')
                     // styles: {
                     //   display: title.replace(/\s/g,"").length > 0 ? '' : 'none'
                     // }
                 });
+
+                widget.documentElement.innerHTML = '<title>Test</title><p>Hello World!</p>';
 
 
                 // Here we update the content of the widget body.
