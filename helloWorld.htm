@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
+
+<head>
+    <title>Widget sample</title>
+    <meta name="author" content="DSIS" />
+    <meta name="description" content="DSIS Sample Widget Hello World" />
+    <meta name="apiVersion" content="1.3" />
+    <meta name="debugMode" content="true" />
+    <meta name="strictMode" content="false" />
+
+    <link rel="stylesheet" type="text/css" href="http://uwa.netvibes.com/lib/c/UWA/assets/css/standalone.css" />
+    <script type="text/javascript" src="http://uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"></script>
+
+    <widget:preferences>
+        <widget:preference type="text" name="Preference1" label="Type of Object" defaultValue="Demo Value"/>
+        <widget:preference type="text" name="UserName" label="User Name" defaultValue="Toto"/>
+    </widget:preferences>
+
+    <style type="text/css">
+    </style>
+
+    <script type="text/javascript">
+
+        require(["UWA/Drivers/jQuery ", "HelloModule/Toto"], function($, totoModule) {
+            var myWidget = {
+                onLoadWidget : function() {
+                    widget.body.innerHTML = "<p>Hello, World !</p>" + "<br/>" +
+                    totoModule.fctHello("My Name: ") + widget.getPreference("UserName").value;
+                },
+                
+                toto: "test"
+            };
+
+            widget.addEvent("onLoad", myWidget.onLoadWidget);
+        });
+
+    </script>
+</head>
+
+<body>
+    <p>Loading...</p>
+</body>
+
+</html>
