@@ -49,7 +49,7 @@
                 The onLoad() function is the first one,
                 it will be triggered by widget "onLoad" event.
             */
-            onLoad: () => {
+            onLoad: function() {
                 const content = [
                     '<div style="width: 250px; height: 325px; font-size: 24px; margin: 0 auto; background-color: #37BC9B; border-radius: 12px; display: flex; justify-content: center; align-items: center; border: 1px solid #656D78;">',
                         '<div style="width: 175px; height: 235px; background-color: #48CFAD; color: white; border-radius: 3px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; text-align: center; box-shadow: 0px 1px #656D78;"><span style="color: #F5F7FA">First Widget! YAY!</span><button style="width: 125px; height: 35px; border: none; border-radius: 15px; outline: #656D78 2.5px solid; background-color: #AC92EC; margin: 0; padding: 0; color: #F5F7FA;">FLIP</button></div>',
@@ -58,7 +58,7 @@
                 widget.setBody(
                     // tag: 'div',
                     // html: 
-                    'First widget is here...'
+                    'Hello World...'
                     // content.join('')
                     // styles: {
                     //   display: title.replace(/\s/g,"").length > 0 ? '' : 'none'
