@@ -55,16 +55,15 @@
                         '<div style="width: 175px; height: 235px; background-color: #48CFAD; color: white; border-radius: 3px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; text-align: center; box-shadow: 0px 1px #656D78;"><span style="color: #F5F7FA">First Widget! YAY!</span><button style="width: 125px; height: 35px; border: none; border-radius: 15px; outline: #656D78 2.5px solid; background-color: #AC92EC; margin: 0; padding: 0; color: #F5F7FA;">FLIP</button></div>',
                     '</div>'];
 
-                widget.setBody({
-                    tag: 'div',
-                    html: 'First widget is here...'
+                widget.setBody(
+                    // tag: 'div',
+                    // html: 
+                    'First widget is here...'
                     // content.join('')
                     // styles: {
                     //   display: title.replace(/\s/g,"").length > 0 ? '' : 'none'
                     // }
-                });
-
-                widget.documentElement.innerHTML = '<title>Test</title><p>Hello World!</p>';
+                );
 
 
                 // Here we update the content of the widget body.
