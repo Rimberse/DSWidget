@@ -21,13 +21,21 @@
     <style type="text/css">
     </style>
 
+	<script data-main="scripts/main" src="scripts/require.js"></script>
     <script type="text/javascript">
-
-        require(["UWA/Drivers/jQuery ", "HelloModule/Toto"], function($, totoModule) {
+        require(["HelloModule/Toto"], function(totoModule) {
             var myWidget = {
                 onLoadWidget : function() {
+
                     widget.body.innerHTML = "<p>Hello, World !</p>" + "<br/>" +
-                    totoModule.fctHello("My Name: ") + widget.getPreference("UserName").value;
+                    totoModule.fctHello("Your Name: ") + "<span id='name'>" + widget.getPreference("UserName").value + "</span>" + "<br/>" + "<button id='nameChange'>Change name</button>";
+					
+					document.getElementById("nameChange").addEventListener ("click", handleClick, false);
+					
+					function handleClick() {
+						var person = prompt("Please enter your name: ");
+						document.getElementById("name").innerHTML = person;
+					}
                 },
                 
                 toto: "test"
