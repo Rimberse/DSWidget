@@ -21,30 +21,31 @@
     <style type="text/css">
     </style>
 
-	<script data-main="scripts/main" src="scripts/require.js"></script>
-    <script type="text/javascript">
-        require(["HelloModule/Toto"], function(totoModule) {
-            var myWidget = {
-                onLoadWidget : function() {
+	<script type="text/javascript" src="scripts/require.js"></script>
+	<script>
+		require(["HelloModule/Toto"], function(totoModule) {
+		console.log("Hello");
+	
+        var myWidget = {
+            onLoadWidget : function() {
 
-                    widget.body.innerHTML = "<p>Hello, World !</p>" + "<br/>" +
-                    totoModule.fctHello("Your Name: ") + "<span id='name'>" + widget.getPreference("UserName").value + "</span>" + "<br/>" + "<button id='nameChange'>Change name</button>";
+                widget.body.innerHTML = "<p>Hello, World !</p>" + "<br/>" +
+                totoModule.fctHello("Your Name: ") + "<span id='name'>" + widget.getPreference("UserName").value + "</span>" + "<br/>" + "<button id='nameChange'>Change name</button>";
 					
-					document.getElementById("nameChange").addEventListener ("click", handleClick, false);
+				document.getElementById("nameChange").addEventListener ("click", handleClick, false);
 					
-					function handleClick() {
-						var person = prompt("Please enter your name: ");
-						document.getElementById("name").innerHTML = person;
-					}
-                },
+				function handleClick() {
+					var person = prompt("Please enter your name: ");
+					document.getElementById("name").innerHTML = person;
+				}
+            },
                 
-                toto: "test"
-            };
+            toto: "test"
+        };
 
-            widget.addEvent("onLoad", myWidget.onLoadWidget);
-        });
-
-    </script>
+			widget.addEvent("onLoad", myWidget.onLoadWidget);
+		});
+	</script>
 </head>
 
 <body>
